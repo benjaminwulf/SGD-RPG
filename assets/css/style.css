@@ -1,8 +1,11 @@
 .container {
     font-family: Roboto;
     color: #ffffff;
-    background: #000000
+    background: #000000;
+    padding: 80px;
 }
+
+
 #main-game-section {
     font-family: Roboto;
     color: #000;
