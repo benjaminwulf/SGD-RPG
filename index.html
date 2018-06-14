@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shell Gaming Dominion RPG</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- FONTS CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Libre+Barcode+39|Roboto" rel="stylesheet">
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <!-- LOCAL CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<!-- BEGIN JUMBOTRON -->
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <img id="sgd-logo" border="0" alt="Shell Gaming Dominion Logo" src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-00-title.png"
+            width="100%">
+    </div>
+</div>
+<!-- END JUMBOTRON -->
+
+<!-- START CHARACTER SELECTION -->
+
+<body>
+    <div class="container section-title">Select Your Character To Begin</div>
+
+    <div class="container" id="main-game-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card" id="character-hw" style="width: 240px;">
+                    <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-aa-hw.JPG" alt="Henrika Warsaw" width="200px">
+                    <div class="card-body">
+                        Henrike Warsaw
+                    </div>
+                </div>
+
+                    <div class="card" id="character-hh" style="width: 240px;">
+                        <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-aa-hh.JPG" alt="Hansel Heidelberg" width="200px">
+                        <div class="card-body">
+                            Hansel Heidelberg
+                        </div>
+                    </div>
+
+                <div class="card" id="character-racecar" style="width: 240px;">
+                    <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-aa-racecar.JPG" alt="Race Car" width="200px">
+
+                    <div class="card-body">
+                        Race Car
+                    </div>
+                </div>
+
+                <div class="card" id="character-ruby" style="width: 240px;">
+                    <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-aa-ruby.JPG" alt="Ruby" width="200px">
+
+                    <div class="card-body">
+                        Ruby
+                    </div>
+                </div>
+            </div>
+        </div>
+ <!-- END CHARACTER SELECTION -->
+
+
+
+        <div class="container col-lg-4" id="selected-character-section">
+            <div class="section-title container"></div>
+            <div id="selected-character"></div>
+        </div>
+        <div class="section-title container col-lg-4">Fight Section
+            <div id="fight-section">
+                <button class="btn" id="attack-button">Attack</button>
+                <div class="jumbotron" id="gameMessage"></div>
+            </div>
+        </div>
+        <div id="action">
+            <div class="character-section">
+                <div class="container section-title col-lg-3">
+                    <div id="defender"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="available-to-attack-section">
+            <div class="section-title"></div>
+        </div>
+
+        <footer>
+            <div class="row container">
+                <div class="col-lg-12">
+                    <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-01-welcome.png" alt="Shell Gaming Dominion Welcome" width="100%">
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <!-- Game logic -->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+
+</html>
