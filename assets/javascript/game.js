@@ -3,26 +3,28 @@ var hpHw = 140;
 var hpHh = 112;
 var hpRc = 88;
 var hpRb = 120;
+var attackerHp = "";
+var defenderHp = "";
 
 // Create object with all character cards
-var cards = {
-    hw: {
+var characters = [
+        {
         name: "Henrike Warsaw",
         hp: 140
         },
-    hh: {
+        {
         name: "Hansel Heidelber",
         hp: 112
         },
-    rc: {
+        {
         name: "Race Car",
         hp: 88
         },
-    rb: {
+        {
         name: "Ruby",
         hp: 120
         }
-};
+    ]
 
 // Use jQuery to display hp to DOM
 $("#hp-hw").text("HP: " + hpHw);
@@ -31,16 +33,59 @@ $("#hp-rc").text("HP: " + hpRc);
 $("#hp-rb").text("HP: " + hpRb);
 
 // Move card to fight section on click of attack-button
-$(".card").on("click", function() {
-     $(this).appendTo($("#selected-character"));
+// If "#choose-enemy-button" clicked is true, run defender function
+// If "#choose-enemy-button" not clicked, run attacker function
+
+$("#card-hw.card").on("click", function() {
+    attackerHp = hpHw;
+    console.log(attackerHp);
+    $("#card-hw").appendTo($("#selected-character"));
+});
+$("#card-hh.card").on("click", function() {
+    attackerHp = hpHh;
+    console.log(attackerHp);
+    $("#card-hh").appendTo($("#selected-character"));
+});
+$("#card-rc.card").on("click", function() {
+    attackerHp = hpRc;
+    console.log(attackerHp);
+    $("#card-rc").appendTo($("#selected-character"));
+});
+$("#card-rb.card").on("click", function() {
+    attackerHp = hpRb;
+    console.log(attackerHp);
+    $("#card-rb").appendTo($("#selected-character"));
 });
 
 // On click "id="attack-button" the immediate following click of card will move id="defender"
-$("#attack-button").on("click", function() {
-    $("#game-message").text("Choose a character to attack!");
-    $(".card").on("click", function() {
-         $(this).appendTo($("#defender"));
+$("#choose-enemy-button").on("click", function() {
+    $("#card-hw.card").on("click", function() {
+        defenderHp = hpHw;
+        console.log(defenderHp);
+        $("#card-hw").appendTo($("#defender"));
+    });
+    $("#card-hh.card").on("click", function() {
+        defenderHp = hpHh;
+        console.log(defenderHp);
+        $("#card-hh").appendTo($("#defender"));
+    });
+    $("#card-rc.card").on("click", function() {
+        defenderHp = hpRc;
+        console.log(defenderHp);
+        $("#card-rc").appendTo($("#defenderr"));
+    });
+    $("#card-rb.card").on("click", function() {
+        defenderHp = hpRb;
+        console.log(defenderHp);
+        $("#card-rb").appendTo($("#defender"));
     });
 });
+    // $("#choose-enemy-message").text("Choose a character to attack!");
+    // $(".card").on("click", function() {
+    //      defender = this.key.hp;
+    //      $(this).appendTo($("#defender"));
+    // });
+
 
 // Here we are creating logic to adjust HP based on Math.random in attack
+
