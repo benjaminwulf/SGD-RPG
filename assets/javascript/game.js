@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     playerSelect.henrike();
     playerSelect.hansel();
     playerSelect.raceCar();
@@ -14,6 +14,19 @@ var attackerHp = "";
 var defenderHp = "";
 var isAttacker = false;
 var attackImgArr = [];
+
+function resetGame() {
+    $("#dominion-graphic").html("<img src='https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-01-welcome.png' width='300px'>");
+    $(".card").appendTo("#cards");
+    attackerHp = "";
+    defenderHp = "";
+    isAttacker = false;
+    attackImgArr = [];
+};
+
+$("#reset-game").on("click", function() {
+   resetGame();
+});
 
 // Create objects with all character cards
 var hw = {
@@ -119,80 +132,54 @@ var playerSelect = {
 }
 
 // GAME LOGIC FOR ATTACK FUNCTION
-$("#attack-button").on("click", function() {
+$("#attack-button").on("click", function () {
     var damageAttacker = Math.floor(Math.random() * (.2 * (defenderHp)));
     var damageDefender = Math.floor(Math.random() * (.3 * (attackerHp)));
 
-        attackImgArr = [
-            "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-action-ddos01.png",
-            "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-action-ddos02.png",
-            "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-action-ddos03.png"
-        ];
+    attackImgArr = [
+        "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-action-ddos01.png",
+        "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-action-ddos02.png",
+        "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-action-ddos03.png"
+    ];
 
-    $("#dominion-graphic").html('<img src="' + attackImgArr[Math.floor(Math.random() *(attackImgArr.length))] + '">');
-    
-    if (damageAttacker <= 0 && damageDefender <= 0) {
-        console.log("You both are dead");
-    }
-    if (damageAttacker <= 0) {
-        console.log("Game over");
-    }
-    if (damageDefender <= 0) {
-        console.log("Winner");
-    } else {
-        attackerHp -= damageAttacker;
-        defenderHp -= damageDefender;
-    }
+    gameOverImgArr = [
+        "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-page-hh-race-car05.png",
+        "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-02-pre-flash-back.png",
+        "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-hw-ruby-fight.png",
+        "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-page-hh-race-car03.png"
+    ];
+
+    winnerImgArr = [
+        "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-page-hh-server-room.png",
+        "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-page-hh-race-car01.png",
+
+    ];
+
+    $("#dominion-graphic").html('<img src="' + attackImgArr[Math.floor(Math.random() * (attackImgArr.length))] + '">');
+
     // ATTACKER HP
     $("#attacker-damage-stats").html("Damage to attacker: " + damageAttacker);
 
     $("#attacker-hp-stats").html("Attacker HP Remaining: " + attackerHp);
-    
+
     // DEFENDER HP
     $("#defender-damage-stats").html("Damage to defender: " + damageDefender);
 
-    $("#defender-hp-stats").html("Defender HP: " +defenderHp);
+    $("#defender-hp-stats").html("Defender HP: " + defenderHp);
+
+    if (attackerHp <= 0 && defenderHp <= 0) {
+        $("#dominion-message").html('<h1>Both Lose!</h1>');
+        $("#dominion-graphic").html('<img src="' + gameOverImgArr[Math.floor(Math.random() * (gameOverImgArr.length))] + '" width="300px">');
+    }
+    if (attackerHp <= 0 && defenderHp > 0) {
+        $("#dominion-message").html('<h1>You Lose!</h1>');
+        $("#dominion-graphic").html('<img src="' + gameOverImgArr[Math.floor(Math.random() * (gameOverImgArr.length))] + '" width="300px">');
+    }
+    if (defenderHp <= 0 && attackerHp > 0) {
+        $("#dominion-message").html('<h1>You Win!</h1>');
+        $("#dominion-graphic").html('<img src="' + winnerImgArr[Math.floor(Math.random() * (winnerImgArr.length))] + '" width="300px">');
+    } else {
+        attackerHp -= damageAttacker;
+        defenderHp -= damageDefender;
+    }
 });
-
-
-// if (isAttacker == false) {
-//     var attacker = hw.name;
-//     console.log(attacker);
-//     console.log(attackerHp);
-//     $(".card-body.hp-hw").html("attacker: ", attacker);
-//     $(".card-body.hp-hw").html("attackerHp: ", attackerHp);
-// } else if ($(".card-body.hp-hw" && isAttacker == true)) {
-//     var defender = hw.name;
-//     console.log(defender);
-//     console.log(attackerHp);
-//     $(".card-body.hp-hw").html("defender: ", defender);
-//     $(".card-body.hp-hw").html("defenderHp: ", defenderHp);
-// }
-// if ($(".card-body.hp-hh" && isAttacker == false)) {
-//     var attacker = hh.name;
-//     console.log(attacker);
-//     console.log(attackerHp);
-// } else if ($(".card-body.hp-hh" && isAttacker == true)) {
-//     var defender = hh.name;
-//     console.log(defender);
-//     console.log(attackerHp);
-// }
-// if ($(".card-body.hp-rc" && isAttacker == false)) {
-//     var attacker = rc.name;
-//     console.log(attacker);
-//     console.log(attackerHp);
-// } else if ($(".card-body.hp-rc" && isAttacker == true)) {
-//     var defender = rc.name;
-//     console.log(defender);
-//     console.log(attackerHp);
-// }
-// if ($(".card-body.hp-rb" && isAttacker == false)) {
-//     var attacker = rb.name;
-//     console.log(attacker);
-//     console.log(attackerHp);
-// } else if ($(".card-body.hp-rb" && isAttacker == true)) {
-//     var defender = rb.name;
-//     console.log(defender);
-//     console.log(attackerHp);
-// }
-

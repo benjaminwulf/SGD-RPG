@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title>Shell Gaming Dominion RPG</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <!-- HIGHLIGHT.JS -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     <!-- FONTS CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
@@ -45,7 +43,7 @@
                         </div>
                         <br>
                         <br>
-                        <button class="btn" id="reset-button">Reset Game</button>
+                        <button class="btn" id="reset-game">Reset Game</button>
                         <br>
                         <br>
                     </div>
@@ -66,7 +64,7 @@
         </div>
 
         <!-- CHARACTER CARDS -->
-        <div class="row">
+        <div class="row" id="cards">
             <div class="col-sm-2.5">
                 <div class="card" id="card-hw" style="width: 200px;">
                     <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-aa-hw.JPG" alt="Henrika Warsaw" width="200px">
@@ -126,10 +124,13 @@
 
             <div class="col-lg-4">
                 <!-- DOMINION ARENA -->
-                <div id="dominion-graphic">
+                <div id="dominion-message">
                      <p>
-                         CYBERSPACE DOMINION
+                        CYBERSPACE DOMINION
                      </p>
+                </div>
+                <div id="dominion-graphic">
+                     
                 </div>
             </div>
             <div class="col-lg-4">
@@ -153,9 +154,6 @@
             </div>
         </footer> -->
     </div>
-    <!-- HIGHLIGHT.JS -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <!-- BOOTSTRAP CDN -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
