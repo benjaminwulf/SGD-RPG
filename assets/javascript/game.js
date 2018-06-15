@@ -13,6 +13,7 @@ var hpRb = 120;
 var attackerHp = "";
 var defenderHp = "";
 var isAttacker = false;
+var attackImgArr = [];
 
 // Create objects with all character cards
 var hw = {
@@ -122,6 +123,14 @@ $("#attack-button").on("click", function() {
     var damageAttacker = Math.floor(Math.random() * (.2 * (defenderHp)));
     var damageDefender = Math.floor(Math.random() * (.3 * (attackerHp)));
 
+        attackImgArr = [
+            "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-action-ddos01.png",
+            "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-action-ddos02.png",
+            "https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-action-ddos03.png"
+        ];
+
+    $("#dominion-graphic").html('<img src="' + attackImgArr[Math.floor(Math.random() *(attackImgArr.length))] + '">');
+    
     if (damageAttacker <= 0 && damageDefender <= 0) {
         console.log("You both are dead");
     }
@@ -134,12 +143,15 @@ $("#attack-button").on("click", function() {
         attackerHp -= damageAttacker;
         defenderHp -= damageDefender;
     }
-    console.log("Damage to attacker:", damageAttacker);
-    console.log("Attacker HP:", attackerHp);
-    
-    console.log("Damage to defender:", damageDefender);
-    console.log("Defender HP:", defenderHp);
+    // ATTACKER HP
+    $("#attacker-damage-stats").html("Damage to attacker: " + damageAttacker);
 
+    $("#attacker-hp-stats").html("Attacker HP Remaining: " + attackerHp);
+    
+    // DEFENDER HP
+    $("#defender-damage-stats").html("Damage to defender: " + damageDefender);
+
+    $("#defender-hp-stats").html("Defender HP: " +defenderHp);
 });
 
 
