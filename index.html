@@ -6,8 +6,7 @@
     <title>Shell Gaming Dominion RPG</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <!-- HIGHLIGHT.JS -->
-    <link rel="stylesheet"
-    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     <!-- FONTS CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
@@ -25,44 +24,74 @@
 <!-- END JUMBOTRON -->
 
 <!-- START CHARACTER SELECTION -->
+
 <body>
-    <div class="container" id="main-game-section">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                    <pre><code class="html" style="color: #00ff00">
-> Select Your Character To Begin
- _________ ________________    
-/   _____//  _____/\______ \   
-\_____  \/   \  ___ |    |  \   
-/        \    \_\  \|    `   \  
-/_______  /\______  /_______  /  
-\/        \/        \/       
-                  </code></pre>
+            <!-- BUTTON TO SWITCH isAttacker TO FALSE AND CHOOSE DEFENDER -->
+            <div class="col-lg-2">
+                <div id="choose-enemy">
+                    <button class="btn" id="choose-enemy-button">Choose Enemy</button>
+                    <div class="container" id="choose-enemy-message">
+                        <!-- CHOOSE ENEMY MESSAGE GOES HERE -->
+                    </div>
+                    <br>
+                    <br>
+                    <!-- BUTTON TO FUN ATTACK FUNCTION -->
+                    <div id="fight-section">
+                        <button class="btn" id="attack-button">Attack</button>
+                        <div class="container" id="attack-message">
+                            <!-- ATTACK MESSAGE GOES HERE -->
+                        </div>
+                        <br>
+                        <br>
+                        <button class="btn" id="reset-button">Reset Game</button>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-8">
+                <p class="html" style="color: #00ff00">
+                    Step 1: Select Your Character Card To Begin.
+                </p>
+                <p class "html" style="color: #00ffff">
+                    Step 2: Click "Choose Enemy" button and select Card.
+                </p>
+                <p class "html" style="color: #ff00ff">
+                    Step 3: Click "Attack" button to battle in the Dominion.
+                </p>
             </div>
         </div>
+
+        <!-- CHARACTER CARDS -->
         <div class="row">
             <div class="col-sm-2.5">
                 <div class="card" id="card-hw" style="width: 200px;">
                     <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-aa-hw.JPG" alt="Henrika Warsaw" width="200px">
                     <div class="card-body">
-                        Henrike Warsaw<p id="hp-hw"></p>
+                        Henrike Warsaw
+                        <p class="hp-hw"></p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-2.5">
-                    <div class="card" id="card-hh" style="width: 200px;">
-                        <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-aa-hh.JPG" alt="Hansel Heidelberg" width="200px">
-                        <div class="card-body">
-                            Hansel Heidelberg<p id="hp-hh"></p>
-                        </div>
+                <div class="card" id="card-hh" style="width: 200px;">
+                    <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-aa-hh.JPG" alt="Hansel Heidelberg" width="200px">
+                    <div class="card-body">
+                        Hansel Heidelberg
+                        <p class="hp-hh"></p>
                     </div>
+                </div>
             </div>
             <div class="col-sm-2.5">
                 <div class="card" id="card-rc" style="width: 200px;">
                     <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-aa-racecar.JPG" alt="Race Car" width="200px">
 
                     <div class="card-body">
-                        Race Car<p id="hp-rc"></p>
+                        Race Car
+                        <p class="hp-rc"></p>
                     </div>
                 </div>
             </div>
@@ -71,49 +100,41 @@
                     <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-aa-ruby.JPG" alt="Ruby" width="200px">
 
                     <div class="card-body">
-                        Ruby<p id="hp-rb"></p>
+                        Ruby
+                        <p class="hp-rb"></p>
                     </div>
                 </div>
             </div>
         </div>
- <!-- END CHARACTER SELECTION -->
+        <!-- END CHARACTER SELECTION -->
 
 
+        <!-- SELECTED CHARACTER MOVES HERE -->
+        <div class="row">
+            <div class="col-lg-4" id="selected-character-section">
 
-        <div class="container col-lg-4" id="selected-character-section">
-            <div class="section-title container"></div>
-            <div id="selected-character"></div>
-        </div>
-        <div class="section-title container col-lg-4">The Dominion
-            <div id="choose-enemy">
-                <button class="btn" id="choose-enemy-button">Choose Enemy</button>
-                <div class="container" id="choose-enemy-message"></div>
+                <div id="selected-character" class="hp-hw hp-hh hp-rc hp-rb">
+                </div>
             </div>
-        </div>
-        <div class="container col-lg-4">Fight Section
-            <div id="fight-section">
-                <button class="btn" id="attack-button">Attack</button>
-                <div class="container" id="attack-message"></div>
+
+
+            <div class="col-lg-4">
+                <!-- DOMINION ARENA -->
             </div>
-        </div>
-        <div id="action">
-            <div class="character-section">
-                <div class="container section-title col-lg-3">
-                    <div id="defender"></div>
+            <div class="col-lg-4">
+                <div id="defender" class="hp-hw hp-hh hp-rc hp-rb">
+
                 </div>
             </div>
         </div>
-        <div class="container" id="available-to-attack-section">
-            <div class="section-title"></div>
-        </div>
 
-        <footer>
+        <!-- <footer>
             <div class="row">
                 <div class="col-lg-12">
                     <img src="https://s3-us-west-2.amazonaws.com/benji.to/img-sgd-01-welcome.png" alt="Shell Gaming Dominion Welcome" width="100%">
                 </div>
             </div>
-        </footer>
+        </footer> -->
     </div>
     <!-- HIGHLIGHT.JS -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
