@@ -118,7 +118,29 @@ var playerSelect = {
 }
 
 // GAME LOGIC FOR ATTACK FUNCTION
+$("#attack-button").on("click", function() {
+    var damageAttacker = Math.floor(Math.random() * (.2 * (defenderHp)));
+    var damageDefender = Math.floor(Math.random() * (.3 * (attackerHp)));
 
+    if (damageAttacker <= 0 && damageDefender <= 0) {
+        console.log("You both are dead");
+    }
+    if (damageAttacker <= 0) {
+        console.log("Game over");
+    }
+    if (damageDefender <= 0) {
+        console.log("Winner");
+    } else {
+        attackerHp -= damageAttacker;
+        defenderHp -= damageDefender;
+    }
+    console.log("Damage to attacker:", damageAttacker);
+    console.log("Attacker HP:", attackerHp);
+    
+    console.log("Damage to defender:", damageDefender);
+    console.log("Defender HP:", defenderHp);
+
+});
 
 
 // if (isAttacker == false) {
